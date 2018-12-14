@@ -33,7 +33,7 @@ def monitor_app(app, path="/metrics"):
 
     prometheus_app = make_wsgi_app()
 
-    return DispatcherMiddleware(app, {
+    return DispatcherMiddleware(app.wsgi_app, {
         path: prometheus_app
     })
 
